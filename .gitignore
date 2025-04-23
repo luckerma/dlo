@@ -229,3 +229,5 @@ pyrightconfig.json
 
 test.py
 *.pdf
+*.zip
+tutorials/images/**
