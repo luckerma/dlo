@@ -1,0 +1,42 @@
+\DeclareMathOperator{\AND}{AND}
+\DeclareMathOperator{\atantwo}{atan2}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\XOR}{XOR}
+
+\newcommand{\trans}{\ensuremath{^\top}}%
+
+\newcommand{\vecG}{\ensuremath{\mathbf{g}}}%
+\newcommand{\vecW}{\ensuremath{\mathbf{w}}}%
+\newcommand{\vecX}{\ensuremath{\mathbf{x}}}%
+\newcommand{\vecY}{\ensuremath{\mathbf{y}}}%
+\newcommand{\vecZ}{\ensuremath{\mathbf{z}}}%
+\newcommand{\netout}{\ensuremath{\hat{y}}}%
+\newcommand{\nettarget}{\ensuremath{y}}%
+\newcommand{\exampleloss}{\ensuremath{L}}%
+\newcommand{\lossfunc}{\ensuremath{J}}%
+\newcommand{\lossfuncCompl}{\ensuremath{\lossfunc(\vecW, \vecX, y)}}
+\newcommand{\learnrate}{\ensuremath{\eta}}%
+
+\newcommand{\ce}{\ensuremath{\mathrm{e}}}%
+\newcommand{\ci}{\ensuremath{\mathrm{i}}}%
+\newcommand{\iu}{\mathrm{i}\mkern1mu}% ??
+
+\newcommand{\tanhFrac}[1]{\ensuremath{\dfrac{2}{1 \! + \! \ce^{-2\left( #1 \right)}} - 1 }}
+\newcommand{\tanhFracN}[2]{\ensuremath{\dfrac{2 \cdot #1}{1 \! + \! \ce^{-2\left( #2 \right)}} - 1 }}
+
+
+\pgfmathdeclarefunction{gauss}{2}{%
+    \pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}%
+}
+
+% https://mylatexnotes.wordpress.com/2017/05/08/plots-how-to-select-first-n-rows-of-data-to-plot/
+% Style to select only points from #1 to #2 (inclusive)
+\pgfplotsset{select coords between index/.style 2 args={%
+            x filter/.code={%
+                    \ifnum\coordindex<#1\def\pgfmathresult{}\fi%
+                    \ifnum\coordindex>#2\def\pgfmathresult{}\fi%
+                }
+        }}
