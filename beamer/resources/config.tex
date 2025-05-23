@@ -1,0 +1,123 @@
+% THEME CONFIGURATION
+
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}[page number]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+\setbeamerfont{title}{size=\LARGE}
+
+% Tikz
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% SALMEN CONFIGS
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{codebg}{rgb}{0.97,0.97,0.97}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{codebg},
+    commentstyle=\color{darkgray},
+    keywordstyle=\color{THOrange},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{THPurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,left]{author in head/foot}%
+            \usebeamerfont{author in head/foot}\hspace*{2ex}\insertshortauthor
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+            \usebeamerfont{title in head/foot}\insertshorttitle%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+            \usebeamerfont{date in head/foot}\insertpagenumber{}/\insertpresentationendpage\hspace*{2ex}
+        \end{beamercolorbox}
+    }
+    \vskip0pt%
+}
+\makeatother
+
+\AtBeginSection[]{
+    \begin{frame}[plain,noframenumbering]
+        \vfill
+        \centering
+        \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+            \usebeamerfont{title}\insertsectionnumber.~\insertsectionhead\par%
+        \end{beamercolorbox}
+        \vfill
+    \end{frame}
+    \setcounter{framenumber}{0}
+}
+
+% FONT ENCODING
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{csquotes}
+
+% MATH PACKAGES
+\usepackage{amsmath, amssymb, amsthm}
+
+% GRAPHICS & DIAGRAMS
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{svg}
+\usetikzlibrary{shapes, arrows, matrix, positioning}
+\graphicspath{
+    {./resources/},
+    {./resources/images/},
+}
+
+\usepackage{caption}
+\captionsetup{labelformat=empty,labelsep=none}
+
+% BIBLIOGRAPHY
+\usepackage[style=alphabetic,giveninits=true,backend=biber]{biblatex}
+\def\bibfont{\footnotesize}
+\addbibresource{./resources/bib/references.bib}
+
+% CUSTOM COMMANDS
+\newcommand{\thkoeln}{\textbf{TH Köln}}
+
+% DOCUMENT METADATA
+\title[DLO]{Deep Learning und Objekterkennung}
+\subtitle{Vorlesung an der TH Köln, SoSe 2025}
+\author[Luca Uckermann]{Luca Uckermann}
+\institute[TH Köln]{
+    %\thkoeln\\
+    \includegraphics[width=0.2\textwidth]{./resources/thk_logo.png}\\\vspace{0.5cm}
+    Fakultät für Informations-, Medien- und Elektrotechnik\\
+    Institut für Medien- und Phototechnik\\
+}
+\date{\today}
+
+\hypersetup{
+    pdfauthor={Luca Uckermann},
+    pdftitle={Deep Learning},
+    pdfsubject={Vorlesung an der TH Köln, SoSe 2025},
+    pdfkeywords={},
+    bookmarksnumbered=true,
+    pdfstartview=FitH,
+    hidelinks
+}

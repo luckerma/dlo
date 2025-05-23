@@ -1,0 +1,48 @@
+name: Build and Deploy LaTeX Document
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: Build Latex PDF
+        run: |
+          sudo apt update
+          sudo apt install latexmk texlive-full
+
+          cd ./beamer
+          latexmk -pdf ./main.tex
+          mv ./main.pdf ../gh-pages/main.pdf
+          cd ../
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3.0.1
+        with:
+          path: ./gh-pages
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4.0.5

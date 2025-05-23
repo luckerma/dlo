@@ -1,0 +1,24 @@
+\begin{tikzpicture}[
+        every node/.style={minimum size=1.2cm, anchor=center},
+        every path/.style={draw},
+        class/.style={font=\bfseries}
+    ]
+
+    % Matrix
+    \matrix (confmat) [matrix of nodes, nodes in empty cells,
+        nodes={draw, minimum width=1.8cm, minimum height=1.2cm, anchor=center},
+        column sep=0.2cm, row sep=0.2cm,
+        row 1/.style={nodes={draw=none, font=\bfseries}},
+        column 1/.style={nodes={draw=none, font=\bfseries, rotate=90}},
+    ] {
+              & Hund & Katze & Maus \\
+        Hund  & 45   & 2     & 1    \\
+        Katze & 1    & 48    & 3    \\
+        Maus  & 0    & 2     & 46   \\
+    };
+
+    % Labels
+    \node[above=0.1cm of confmat-1-2] {Vorhergesagt (Predicted)};
+    \node[rotate=90, left=1.0cm of confmat-2-1] {Tatsächlich (Actual)};
+
+\end{tikzpicture}
