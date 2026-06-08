@@ -50,11 +50,11 @@
 
 ## Install Python (Local)
 
-### Windows
+### Windows Installation
 
-https://www.python.org/downloads/
+<https://www.python.org/downloads/>
 
-### Linux
+### Linux Installation
 
 ```bash
 sudo apt-get update
@@ -106,30 +106,30 @@ pip install -r requirements.txt
 
 ## Google Colab (Online)
 
-https://colab.research.google.com/
+<https://colab.research.google.com/>
 
 # Tutorials
 
 ## Notebooks
 
-https://cs231n.github.io/python-numpy-tutorial/
+<https://cs231n.github.io/python-numpy-tutorial/>
 
 ## Python
 
-https://docs.python.org/3/tutorial/
+<https://docs.python.org/3/tutorial/>
 
 ## Numpy
 
-https://numpy.org/doc/stable/user/absolute_beginners.html
+<https://numpy.org/doc/stable/user/absolute_beginners.html>
 
-https://assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf
+<https://assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf>
 
 ## Pandas
 
-https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html
+<https://pandas.pydata.org/docs/getting_started/intro_tutorials/index.html>
 
-https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
+<https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf>
 
 ## PyTorch
 
-https://pytorch.org/tutorials/beginner/basics/intro.html
+<https://pytorch.org/tutorials/beginner/basics/intro.html>
