@@ -1,0 +1,10 @@
+config:
+  default: true
+  MD013: false
+  MD025: false
+
+globs:
+  - "**/*.md"
+  - "*.md"
+
+fix: true

@@ -537,8 +537,14 @@ pyrightconfig.json
 # End of https://www.toptal.com/developers/gitignore/api/macos,python,visualstudiocode,latex
 
 test.py
+
 *.pdf
 *.zip
 *.pt
+
 tutorials/images/**
+tutorials/data/**
+tutorials/MNIST/**
+tutorials/*.png
+
 Bishop_DL_Figs/*
