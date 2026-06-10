@@ -7,9 +7,13 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -17,20 +21,30 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v6.0.3
 
       - name: Build Latex PDF
         run: |
           sudo apt update
-          sudo apt install latexmk texlive-full
+          sudo apt install latexmk texlive-full poppler-utils
 
-          cd ./beamer
+          cd ./beamer/00-yolo
           latexmk -pdf ./main.tex
-          mv ./main.pdf ../gh-pages/main.pdf
-          cd ../
+          mv ./main.pdf ../../gh-pages/yolo.pdf
+          cd ../../
+
+          cd ./beamer/01-optuna
+          latexmk -pdf ./main.tex
+          mv ./main.pdf ../../gh-pages/optuna.pdf
+          cd ../../
+
+      - name: PDF to PNG preview
+        run: |
+          pdftoppm -png -r 300 -f 2 -singlefile ./gh-pages/yolo.pdf ./gh-pages/yolo-preview
+          pdftoppm -png -r 300 -f 2 -singlefile ./gh-pages/optuna.pdf ./gh-pages/optuna-preview
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3.0.1
+        uses: actions/upload-pages-artifact@v5.0.0
         with:
           path: ./gh-pages
 
@@ -45,4 +59,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4.0.5
+        uses: actions/deploy-pages@v5.0.0

@@ -6,22 +6,22 @@ readme = "README.md"
 requires-python = ">=3.14"
 
 dependencies = [
-    "opencv-python>=4.13.0.92",
-    "pre-commit>=4.5.1",
-    "ruff>=0.15.8",
-    "torch>=2.12.0",
-    "torchvision>=0.27.0",
-    "ultralytics>=8.4.61",
+  "opencv-python>=4.13.0.92",
+  "pre-commit>=4.5.1",
+  "ruff>=0.15.8",
+  "torch>=2.12.0",
+  "torchvision>=0.27.0",
+  "ultralytics>=8.4.61",
 ]
 
 [tool.uv.sources]
 torch = [
-    { index = "pytorch-cpu", marker = "sys_platform == 'macos'" },
-    { index = "pytorch-cu130", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+  { index = "pytorch-cpu", marker = "sys_platform == 'macos'" },
+  { index = "pytorch-cu130", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
 ]
 torchvision = [
-    { index = "pytorch-cpu", marker = "sys_platform == 'macos'" },
-    { index = "pytorch-cu130", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+  { index = "pytorch-cpu", marker = "sys_platform == 'macos'" },
+  { index = "pytorch-cu130", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
 ]
 
 [[tool.uv.index]]

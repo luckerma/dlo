@@ -14,10 +14,10 @@ Frame = NDArray[np.uint8]
 BASE_DIR: Final[Path] = Path(__file__).resolve().parent
 
 DEFAULT_MODEL_PATH: Final[Path] = (
-    BASE_DIR / "yolo26x.pt"
+    BASE_DIR / "yolo26n.pt"
 )  # https://docs.ultralytics.com/models/yolo26#supported-tasks-and-modes
 DEFAULT_VIDEO_PATH: Final[Path] = BASE_DIR / "data" / "video.MOV"
-DEFAULT_START_FRAME: Final[int] = 640
+DEFAULT_START_FRAME: Final[int] = 0
 QUIT_KEY: Final[str] = "q"
 
 
@@ -39,7 +39,9 @@ def detect_objects(frame: Frame, model: YOLO) -> Frame:
     """
 
     results: list[Results] = model.predict(frame, verbose=False)
-    annotated_frame: Frame = results[0].plot()
+    annotated_frame: Frame = frame.copy()
+    for result in results:
+        annotated_frame = result.plot()
 
     return annotated_frame
 
