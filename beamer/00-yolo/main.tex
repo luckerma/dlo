@@ -321,20 +321,25 @@
   }
 \end{frame}
 
-\begin{frame}{YOLO}
+\begin{frame}[fragile]{YOLO}
   \begin{itemize}
     \item Stetige Weiterentwicklung
     \item YOLO/YOLOv1~(2016) -- YOLO12~(2025) -- YOLO26~(2026)
     \item[]
-    \item<2-> Integration in eigene Projekte wird immer einfacher~\cite{Ultralytics2026Yolo}
-      \begin{itemize}
-        \item \texttt{pip install ultralytics}
-        \item \texttt{from ultralytics import YOLO}
-        \item \texttt{model = YOLO("yolo26n.pt")}
-        \item \texttt{results = model.predict(source="video.mp4")}
-        \item \texttt{results[0].plot()}
-      \end{itemize}
+    \item<2-> Integration in eigene Projekte wird immer einfacher~\cite{Ultralytics2026Yolo}:
   \end{itemize}
+  \onslide<3->
+  \begin{lstlisting}[caption={\textit{ultralytics}-Paket installieren},language=Bash,gobble=4,xleftmargin=\leftmargini,xrightmargin=\leftmargini]
+    pip install ultralytics
+  \end{lstlisting}
+  \onslide<4->
+  \begin{lstlisting}[caption={YOLO-Modell verwenden},language=Python,gobble=4,xleftmargin=\leftmargini,xrightmargin=\leftmargini]
+    from ultralytics import YOLO
+
+    model = YOLO("yolo26n.pt")
+    results = model.predict(source="video.mp4")
+    results[0].plot()
+  \end{lstlisting}
 \end{frame}
 
 \begin{frame}{Zusammenfassung}
